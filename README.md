@@ -4,6 +4,8 @@ A fast and scalable product search interface built with **Next.js**, **Fuse.js**
 
 ---
 
+## Demo : https://www.loom.com/share/04734c1c0d434e7885e4490c6b56fc0f
+
 ## 1. 📦 Setup and Installation Instructions
 
 ### Clone the Repository
