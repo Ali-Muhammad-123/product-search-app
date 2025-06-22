@@ -27,30 +27,15 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
     ));
   };
 
-  const isLowStock = product.stock < 10 && product.stock > 0;
-  const isOutOfStock = product.stock === 0;
-
   if (viewMode === "list") {
     return (
       <Card className="flex sm:flex-row flex-col gap-4 hover:shadow-md p-4 transition-all">
         <div className="relative flex-shrink-0 bg-gray-100 rounded-md w-full sm:w-48 h-48 overflow-hidden">
           <img
-            src={product.image || "/placeholder.svg"}
+            src={"/placeholder.svg"}
             alt={product.title}
             className="w-full h-full object-cover"
           />
-          {isOutOfStock && (
-            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
-              <Badge variant="destructive" className="text-white">
-                Out of Stock
-              </Badge>
-            </div>
-          )}
-          {isLowStock && (
-            <Badge variant="secondary" className="top-2 right-2 absolute">
-              Low Stock
-            </Badge>
-          )}
         </div>
 
         <div className="flex flex-col flex-1 justify-between">
@@ -78,12 +63,9 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
             <span className="font-bold text-green-600 text-xl">
               ${product.price}
             </span>
-            <Button
-              disabled={isOutOfStock}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
-            >
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               <ShoppingCart className="mr-2 w-4 h-4" />
-              {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+              Add to Cart
             </Button>
           </div>
         </div>
@@ -97,7 +79,7 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
       <CardContent className="p-4">
         <div className="relative bg-gray-100 mb-4 rounded-lg aspect-square overflow-hidden">
           <img
-            src={product.image || "/placeholder.svg"}
+            src={"/placeholder.svg"}
             alt={product.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -136,10 +118,7 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
       </CardContent>
 
       <CardFooter className="flex flex-col justify-between items-center p-4 pt-0">
-        <Button
-          disabled={isOutOfStock}
-          className="bg-blue-600 hover:bg-blue-700 w-full text-white"
-        >
+        <Button className="bg-blue-600 hover:bg-blue-700 w-full text-white">
           <ShoppingCart className="mr-2 w-4 h-4" />
           Add to Cart
         </Button>
